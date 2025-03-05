@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { Credentials } from '../models/credentials.model';
 
 @Injectable({
@@ -20,11 +19,11 @@ export class AuthService {
   }
 
   logout(): Observable<void> {
-    return new Observable<void>(observer => {
-      localStorage.removeItem('token');
-      localStorage.removeItem('userCredentials');
-      observer.next();
-      observer.complete();
-    });
+    return of(undefined).pipe(
+      tap(() => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('userCredentials');
+      })
+    );
   }
 }
