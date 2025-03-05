@@ -14,7 +14,7 @@
           <label for="password" class="form-label">Password</label>
           <input id="password" type="password" class="form-control" formControlName="password"
             placeholder="Enter your password" required>
-          <app-error-message [validationResult]="passwordError"></app-error-message>
+          <app-error-message [validationResult]="passwordControl"></app-error-message>
         </div>
         <button type="submit" class="btn btn-success w-100" [disabled]="loginForm.invalid">Log in</button>
       </form>

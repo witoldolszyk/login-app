@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { emailValidator } from '../../validators/email.validator';
 import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ import { ErrorMessageComponent } from '../../components/error-message/error-mess
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent { 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {}
 
   loginForm: FormGroup = this.fb.group({
     email: new FormControl('', [Validators.required, emailValidator()]),
@@ -25,15 +27,22 @@ export class LoginComponent {
     return this.loginForm.get('email') as FormControl;
   }
 
-  get passwordError(): FormControl {
+  get passwordControl(): FormControl {
     return this.loginForm.get('password') as FormControl;
   }
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      console.log('Log in:', this.loginForm.value);
-    } else {
-      this.loginForm.markAllAsTouched();
+      const email = this.emailControl.value;
+      const password = this.passwordControl.value;
+      this.authService.login({ email, password }).subscribe({
+        next: token => {
+          this.router.navigate(['/home']);
+        },
+        error: err => {
+          console.error('Login error:', err);
+        }
+      });
     }
   }
 }

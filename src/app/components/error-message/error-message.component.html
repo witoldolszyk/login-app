@@ -1,3 +1,5 @@
-<div *ngIf="shouldShowError()"  class="invalid-feedback">
-  <p>{{ getErrorMessage() }}</p>
-</div>
+@if(shouldShowError()) {
+  <div class="invalid-feedback">
+    <p>{{ getErrorMessage() }}</p>
+  </div>
+}
