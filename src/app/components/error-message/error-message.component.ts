@@ -1,15 +1,13 @@
-import { Component, ChangeDetectionStrategy, input, ChangeDetectorRef, ViewEncapsulation, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ChangeDetectionStrategy, input, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-error-message',
   standalone: true,
-  imports: [CommonModule,],
+  imports: [],
   templateUrl: 'error-message.component.html',
   styleUrls: ['./error-message.component.scss'],
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

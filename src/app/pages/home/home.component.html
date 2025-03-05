@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="container mt-4 text-center">
+    <button (click)="logout()" class="btn btn-danger mb-3">Log out</button>
+    <h1>Welcome!</h1>
+    @if (userData$ | async; as userData;) {
+        <p>Name: {{ userData.name }}</p>
+        <p>Surname: {{ userData.surname }}</p>
+        <p>Role: {{ userData.role }}</p>
+    } @else {
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    }
+</div>

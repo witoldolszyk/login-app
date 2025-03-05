@@ -36,7 +36,7 @@ export class LoginComponent {
       const email = this.emailControl.value;
       const password = this.passwordControl.value;
       this.authService.login({ email, password }).subscribe({
-        next: token => {
+        next: () => {
           this.router.navigate(['/home']);
         },
         error: err => {
