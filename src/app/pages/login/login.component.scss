@@ -1,0 +1,19 @@
+.login-bg {
+  background: url('/assets/background.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  border-radius: 0.5rem;
+  margin: auto;
+}
+
+@media (max-width: 576px) {
+  .login-card {
+    margin: 1rem;
+  }
+}
