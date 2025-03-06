@@ -31,6 +31,13 @@ Login:
 Go to `/login` and enter email and password.
 On successful login, a random token is generated and stored along with credentials in localStorage, and you are redirected to the Home page.
 
+Home:
+
+HomeComponent fetches user data from `/assets/user.json` with a 500 ms simulated delay.
+While loading, a Bootstrap spinner is displayed.
+Once loaded, the user's Name, Surname, and Role are shown.
+Click the "Log out" button to remove the token and return to the login page.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
