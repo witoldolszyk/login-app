@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Credentials } from '../models/credentials.model';
 
 @Injectable({
@@ -13,8 +13,10 @@ export class AuthService {
     return of(token).pipe(
       tap(token => {
         localStorage.setItem('token', token);
+        // I use fake data storage in localStorage temporarily because there's no backend implemented yet.
         localStorage.setItem('userCredentials', JSON.stringify(credentials));
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
@@ -23,7 +25,13 @@ export class AuthService {
       tap(() => {
         localStorage.removeItem('token');
         localStorage.removeItem('userCredentials');
-      })
+      }),
+      catchError(this.handleError)
     );
+  }
+
+  private handleError(error: unknown) {
+    console.error('AuthService error:', error);
+    return throwError(() => new Error('Operation failed.'));
   }
 }
