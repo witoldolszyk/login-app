@@ -18,11 +18,10 @@ export class HomeComponent implements OnInit {
   userData$!: Observable<User>;
   errorMessage: string | null = null;
 
-
   constructor(
-    private userService: UserService, 
-    private router: Router, 
-    private authService: AuthService, 
+    private userService: UserService,
+    private router: Router,
+    private authService: AuthService,
     private cd: ChangeDetectorRef
   ) { }
 

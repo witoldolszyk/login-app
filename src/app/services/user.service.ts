@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
 })
 export class UserService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getUserData(): Observable<User> {
     return this.http.get<User>('/assets/user.json')
@@ -20,13 +20,12 @@ export class UserService {
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = '';
-
     if (error.error instanceof ErrorEvent) {
       errorMessage = `Network error: ${error.error.message}`;
     } else {
       errorMessage = `Server error: ${error.status}, message: ${error.message}`;
     }
-    
+
     console.error('Error occurred:', errorMessage);
     return throwError(() => new Error(errorMessage));
   }

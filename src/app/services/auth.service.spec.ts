@@ -17,7 +17,7 @@ describe('AuthService', () => {
 
   it('should login and store token and credentials in localStorage', (done) => {
     const credentials: Credentials = { email: 'test@test.com', password: '123456' };
-    
+
     spyOn(localStorage, 'setItem').and.callThrough();
 
     service.login(credentials).subscribe((token: string) => {

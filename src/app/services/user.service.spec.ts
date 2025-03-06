@@ -40,7 +40,7 @@ describe('UserService', () => {
   it('should handle error when server returns an error', fakeAsync(() => {
     let errorResponse: any;
     service.getUserData().subscribe({
-      next: () => {},
+      next: () => { },
       error: (error) => {
         errorResponse = error;
       }

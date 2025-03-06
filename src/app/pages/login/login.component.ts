@@ -15,12 +15,12 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginComponent { 
+export class LoginComponent {
   constructor(
-    private fb: FormBuilder, 
-    private router: Router, 
+    private fb: FormBuilder,
+    private router: Router,
     private authService: AuthService
-  ) {}
+  ) { }
 
   loginForm: FormGroup = this.fb.group({
     email: new FormControl('', [Validators.required, emailValidator()]),

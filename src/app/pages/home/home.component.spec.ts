@@ -45,7 +45,7 @@ describe('HomeComponent', () => {
   it('should set errorMessage on getUserData error', fakeAsync(() => {
     mockUserService.getUserData.and.returnValue(throwError(() => new Error('Test error')));
     fixture.detectChanges();
-    component.userData$.subscribe({ next: () => {}, error: () => {} });
+    component.userData$.subscribe({ next: () => { }, error: () => { } });
     tick();
     expect(component.errorMessage).toBe('Test error');
   }));
