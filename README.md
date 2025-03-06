@@ -11,6 +11,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - **Token-based Authentication:** On successful login, a random token is generated and stored in localStorage.
 - **User Data Display:** HomeComponent fetches user data (id, name, surname, role) from a static JSON file in `/src/assets` with a simulated 500 ms delay; during loading, a Bootstrap spinner is displayed.
 - **Route Guards:** Functional guards (`AuthGuard` and `LoginGuard`) secure routes based on the presence of a token in localStorage.
+- **Components:** UI elements like `LoginComponent`, `HomeComponent`, and `ErrorMessageComponent` are implemented as standalone components.
+- **Guards:** `AuthGuard` and `LoginGuard` secure routes based on user authentication status.
+- **Models:** Interfaces such as `User` and `Credentials` enforce strong typing.
+- **Services:** `AuthService` manages login/logout logic, and `UserService` fetches user data from the static API.
+- **Assets:** Static files (JSON, images) are stored in `/src/assets`.
+- **Styles:** Global styles reside in `src/styles.scss`, while component-specific styles are in separate SCSS files.
 
 ## Development server
 
