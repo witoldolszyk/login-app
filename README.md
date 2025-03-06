@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
 
+## Features
+
+- **Standalone Components:** All UI components are built as standalone components (using `standalone: true`), eliminating the need for extra NgModules.
+- **Lazy Loading:** Components are dynamically loaded using `loadComponent` in the routing configuration.
+- **Reactive Forms:** Login forms are built with Reactive Forms using FormBuilder, with form controls accessed via getters.
+- **Error Handling:** A dedicated `ErrorMessageComponent` manages the display of form validation errors.
+- **Token-based Authentication:** On successful login, a random token is generated and stored in localStorage.
+- **User Data Display:** HomeComponent fetches user data (id, name, surname, role) from a static JSON file in `/src/assets` with a simulated 500 ms delay; during loading, a Bootstrap spinner is displayed.
+- **Route Guards:** Functional guards (`AuthGuard` and `LoginGuard`) secure routes based on the presence of a token in localStorage.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
